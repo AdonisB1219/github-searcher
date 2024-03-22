@@ -1,0 +1,57 @@
+li {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul {
+    padding: 15px 0 0 0;
+    margin: 0;
+  }
+  
+  button {
+    background-color: var(--color-dark);
+    color: var(--color-contrast);
+    border: none;
+    border-radius: 4px 13px 0 0;
+    padding: 5px 15px;
+    cursor: pointer;
+  }
+  
+  button.active {
+    background: rgb(14,22,31);
+  background: linear-gradient(0deg, rgba(14,22,31,1) 0%, rgba(108,141,177,1) 75%, rgba(34,56,80,1) 100%);
+  }
+  
+  .button-container {
+    background-color: var(--color-dark);
+    width: fit-content;
+    border-radius: 12px;
+    margin-top: 1em;
+
+  }
+
+  .profile {
+    position: relative;
+    margin: 20px 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  
+  .repositories > ul {
+    display: grid;
+    gap: 1em;
+    grid-auto-rows: 10.5em;
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    background-color: var(--color-dark);
+    border-radius: 0 1em 1em 1em;
+  }
+  
+  ul > li {
+    display: flex;
+    height: fit-content;
+    justify-self: center;
+  }

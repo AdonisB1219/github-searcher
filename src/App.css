@@ -7,6 +7,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0.9em;
+
 }
 
 
@@ -45,34 +47,6 @@ input::placeholder{
     color: var(--color-contrast);
 }
 
-.profile {
-  position: relative;
-  margin: 20px 20px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-
-.repositories > ul {
-  display: grid;
-  gap: 1em;
-  grid-auto-rows: 10.5em;
-  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
-}
-
-ul > li {
-  display: flex;
-  height: fit-content;
-  justify-self: center;
-}
-
-.search-container{
-  display: flex;
-  gap: 0.9em;
-}
 
 .search {
   background-color: #29903B;
@@ -88,11 +62,3 @@ ul > li {
   background-size: 1.5em;
 }
 
-li {
-  list-style: none;
-  padding: 0;
-}
-
-ul {
-  padding: 0 0 0 15px;
-}
