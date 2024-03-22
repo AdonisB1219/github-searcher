@@ -7,7 +7,7 @@ import { RepositoryCard } from './components/Repository/RepositoryCard';
 function App() {
   const [userData, setUserData] = useState(null);
   const [searchValue, setSearchValue] = useState("");
-  const [repositories, setRepositories] = useState("");
+  const [repositories, setRepositories] = useState(null);
 
 
 
@@ -45,7 +45,13 @@ function App() {
         <div>
           <Profile data={userData} />
           <div className='repositories'>
-            <RepositoryCard repository={repositories[0]} />
+            <ul>
+            {
+              Array.isArray(repositories) ? (repositories.map((repository, index) => (
+<li key={index}><RepositoryCard repository={repository}/></li> 
+              )) ) : null
+            }
+            </ul>
           </div>
         </div>
 

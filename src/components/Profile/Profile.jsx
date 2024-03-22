@@ -1,11 +1,6 @@
-import { useEffect } from "react"
 import './profile.css';
 
 export function Profile({ data }) {
-
-    useEffect(() => {
-        console.log(!!data);
-    })
 
     return (
         <>
