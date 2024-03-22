@@ -123,3 +123,12 @@ textarea:not([rows]) {
   --color-contrast: #dbe0e6;
   --color-secondary: #768494;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-contrast);
+  border-radius: 3px;
+}

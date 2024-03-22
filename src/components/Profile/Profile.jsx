@@ -10,14 +10,14 @@ export function Profile({ data }) {
                     <div className="user-info">
                         <img className="avatar" src={data.avatar_url} />
                         <div className="profile-info">
-                            <h3>Followers | <span className="info-number">{data.followers}</span></h3>
+                            <h3>Seguidores | <span className="info-number">{data.followers}</span></h3>
                         </div>
                         <div className="profile-info">
-                        <h3>Following | <span className="info-number">{data.following}</span></h3>
+                        <h3>Siguiendo | <span className="info-number">{data.following}</span></h3>
 
                         </div>
                         <div className="profile-info">
-                        <h3>Location | <span className="info-number">{data.location}</span></h3>
+                        <h3>Localidad | <span className="info-number">{data.location}</span></h3>
 
                         </div>
                     </div>

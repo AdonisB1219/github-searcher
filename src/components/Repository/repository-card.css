@@ -1,9 +1,11 @@
 .repository {
     padding: 1em;
     border-radius: 0.5em;
-    width: 20em;
+    width: 25em;
+    height: 10em;
     background: rgb(11,27,50);
-    background: linear-gradient(90deg, rgba(11,27,50,1) 0%, rgba(63,104,135,1) 75%, rgba(33,81,109,1) 100%);    
+    background: linear-gradient(90deg, rgba(11,27,50,1) 0%, rgba(63,104,135,1) 75%, rgba(33,81,109,1) 100%);  
+    overflow-y: auto;  
 }
 
 .repo-stats > * > p {
@@ -19,4 +21,9 @@
 .stat {
     display: flex;
     gap: 0.5em;
+    align-items: center;
+}
+
+h2 {
+    padding-bottom: 0.3em;
 }

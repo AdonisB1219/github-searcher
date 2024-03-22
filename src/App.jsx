@@ -38,7 +38,7 @@ function App() {
   return (
     <>
       <section className="search-container">
-        <input type="text" name="search" placeholder="Search.." onKeyDown={handleKeyPress} onChange={(e) => setSearchValue(e.target.value)}/>
+        <input type="text" name="search" placeholder="Buscar..." onKeyDown={handleKeyPress} onChange={(e) => setSearchValue(e.target.value)}/>
         <button className='search' onClick={()=>handleButtonClick()}> Buscar </button>
       </section>
       <section className="profile">
@@ -47,7 +47,7 @@ function App() {
           <div className='repositories'>
             <ul>
             {
-              Array.isArray(repositories) ? (repositories.map((repository, index) => (
+              (repositories) ? (repositories.map((repository, index) => (
 <li key={index}><RepositoryCard repository={repository}/></li> 
               )) ) : null
             }

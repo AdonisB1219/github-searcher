@@ -51,6 +51,21 @@ input::placeholder{
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.repositories > ul {
+  display: grid;
+  gap: 1em;
+  grid-auto-rows: 10.5em;
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+}
+
+ul > li {
+  display: flex;
+  height: fit-content;
+  justify-self: center;
 }
 
 .search-container{
@@ -61,8 +76,8 @@ input::placeholder{
 .search {
   background-color: #29903B;
   color: var(--color-contrast);
-  border-radius: 0.2em;
-  border: none;
+  border-radius: 0.3em;
+  border: 2px solid #29903B;
   cursor: pointer;
   font-weight: 600;
   background-image: url('./assets/search.png');
@@ -70,4 +85,13 @@ input::placeholder{
   background-repeat: no-repeat;
   padding: 1em 1.5em 1em 2.5em;
   background-size: 1.5em;
+}
+
+li {
+  list-style: none;
+  padding: 0;
+}
+
+ul {
+  padding: 0 0 0 15px;
 }
