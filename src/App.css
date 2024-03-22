@@ -27,6 +27,19 @@ input:focus {
   box-shadow: 4px 4px 5px rgba(211, 212, 247, 0.363);
 }
 
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-text-fill-color: var(--color-contrast);
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  input:-webkit-autofill:hover {
+    box-shadow: 4px 4px 5px rgba(211, 212, 247, 0.363);
+
+  }
+
 input::placeholder{
     color: var(--color-contrast);
 }
