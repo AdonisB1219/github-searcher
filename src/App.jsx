@@ -1,11 +1,12 @@
-import { Profile } from './components/Profile/Profile';
+import { Profile } from './components/profile/Profile';
 import { useState } from 'react';
 import { fetchRepositories, fetchUserData } from './services/api';
 import './App.css'
-import { RepositoryCard } from './components/Repository/RepositoryCard';
+import { RepositoryCard } from './components/repositories/RepositoryCard';
+import { useUserStore } from './components/store/repositoriesStore';
 
 function App() {
-  const [userData, setUserData] = useState(null);
+  const {userData, setUserData} = useUserStore((state) => state);
   const [searchValue, setSearchValue] = useState("");
   const [repositories, setRepositories] = useState(null);
 

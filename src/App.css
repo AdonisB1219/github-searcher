@@ -9,6 +9,7 @@
     align-items: center;
 }
 
+
 input {
   border: 2px solid var(--color-dark);
   border-radius: 4px;
