@@ -1,0 +1,22 @@
+.repository {
+    padding: 1em;
+    border-radius: 0.5em;
+    width: 20em;
+    background: rgb(11,27,50);
+    background: linear-gradient(90deg, rgba(11,27,50,1) 0%, rgba(63,104,135,1) 75%, rgba(33,81,109,1) 100%);    
+}
+
+.repo-stats > * > p {
+    margin:0;
+}
+
+.repo-stats {
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.stat {
+    display: flex;
+    gap: 0.5em;
+}

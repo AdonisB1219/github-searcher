@@ -1,0 +1,32 @@
+.avatar {
+    height: 200px;
+    padding: 15px;
+    padding-bottom: 0;
+    background-color: var(--color-primary);
+    border-radius: 3%;
+}
+
+.user-info {
+    display: flex;
+    gap: 0.8em;
+    align-items: end;
+    max-width: 1000px;
+    position: relative;
+    top: -70px;
+}
+
+.info-number {
+    color: var(--color-contrast);
+}
+
+.profile-info {
+    padding: 1.2em 2em;
+    background-color: var(--color-dark);
+    height: fit-content;
+    border-radius: 0.5em;
+    width: fit-content;
+}
+
+.username {
+    padding-left: 15px;
+}
