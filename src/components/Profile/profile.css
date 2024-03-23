@@ -82,7 +82,7 @@ h1.error {
 
     .avatar {
         height: 12em;
-        padding: 0;
+        padding: 0.5em;
         margin-right: 1em;
     }
 }

@@ -11,13 +11,13 @@ export function Profile() {
             {userData ? (
                 <div className='user-profile'>
                     <div className="user-info">
-                        <img className="avatar" src={userData.avatar_url} />
+                        <img className="avatar" src={userData.avatarUrl} />
                         <div className='user-stats'>
                         <div className="profile-info">
-                            <h3>Seguidores | <span className="info-number">{userData.followers}</span></h3>
+                            <h3>Seguidores | <span className="info-number">{userData.followers?.totalCount}</span></h3>
                         </div>
                         <div className="profile-info">
-                        <h3>Siguiendo | <span className="info-number">{userData.following}</span></h3>
+                        <h3>Siguiendo | <span className="info-number">{userData.following?.totalCount}</span></h3>
 
                         </div>
                         <div className="profile-info">
