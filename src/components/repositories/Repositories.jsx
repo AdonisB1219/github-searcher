@@ -3,23 +3,39 @@ import { Profile } from '../profile/Profile';
 import { useUserStore } from "../store/repositoriesStore";
 import './repositories.css';
 import { useEffect } from 'react';
-import { fetchRepositories, fetchUserData } from '../../services/graphql-api';
+import { fetchRepositories, paginatedRepositories } from '../../services/graphql-api';
 
 
 export function Repositories() {
-  const { userData, selectedRepos, repositories, setRepositories, setSelectedRepos } = useUserStore((state) => state);
+  const { userData, currentPage, selectedRepos, repositories, repoPageInfo, setRepositories, setSelectedRepos, setCurrentPage, setRepoPageInfo } = useUserStore((state) => state);
 
   async function updateRepos(){
-    setRepositories((await fetchRepositories(userData?.login, selectedRepos))?.nodes);
+    let repositories= (await fetchRepositories(userData?.login, selectedRepos));
+    setRepositories(repositories?.nodes);
+    if(selectedRepos != 'pinned'){
+      setRepoPageInfo(repositories?.pageInfo);
+    }
+  }
+
+  async function getPageRepos(direction){
+    console.log("GET PAGE REPOS");
+    console.log(direction);
+    let cursor = direction == 'after' ? repoPageInfo.endCursor : repoPageInfo.startCursor;
+    console.log(cursor);
+    let repos = await paginatedRepositories(userData?.login, selectedRepos, cursor, direction);
+    setRepositories(repos?.repositories?.nodes);
+    setRepoPageInfo(repos?.repositories?.pageInfo);
+    console.log(repos);
   }
 
   useEffect(() => {
     updateRepos();
-    console.log(repositories);
+    console.log(repoPageInfo);
   }, [selectedRepos]);
 
   useEffect(() => {
   }, [repositories]);
+
 
   const handleClick = (filter) => {
     setSelectedRepos(filter);
@@ -46,6 +62,16 @@ export function Repositories() {
             (<h2 className="no-repos">No hay repositorios en este apartado.</h2>)
           }
           </ul>
+          {(selectedRepos != 'pinned') ? (<>
+          <button 
+          disabled={repoPageInfo?.hasPreviousPage ? false : true}
+          onClick={ () => {getPageRepos('before')}}>Anterior</button>
+
+          <button 
+          disabled={repoPageInfo?.hasNextPage ? false : true}
+          onClick={() => {getPageRepos('after')}}>Siguiente</button>
+          </>) : 
+          (<></>)}
         </div>
       )}
       {(repositories && repositories.length == 0 && selectedRepos == 'all') ? <h1 className="repositories">Aún no hay repositorios en esta cuenta.</h1> : null }

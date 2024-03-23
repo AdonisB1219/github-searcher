@@ -77,7 +77,38 @@ async function repositories(username, type){
 
   const reposQuery = gql`query {
     user (login: "${username}") {
-      ${type}(first:10, orderBy:{field: PUSHED_AT, direction: DESC}, after:"Y3Vyc29yOnYyOpK5MjAyNC0wMi0yMVQxNDowODo0NS0wNjowMM4tYhId"){
+      ${type}(first:10, orderBy:{field: PUSHED_AT, direction: DESC}){
+        pageInfo{
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
+        }
+        nodes {
+          id
+          name
+          description
+          pushedAt
+          forkCount
+          stargazerCount
+          url
+          licenseInfo{
+            name
+          }
+        }
+      }
+    }
+  }`;
+  return (await makeRequest(reposQuery)).data.user;
+
+};
+
+export async function paginatedRepositories(username, type, item, direction){ 
+  let processedType =  type == 'all' ? 'repositories':'repositoriesContributedTo';
+
+  const reposQuery = gql`query {
+    user (login: "${username}") {
+      ${processedType}(first:10, orderBy:{field: PUSHED_AT, direction: DESC}, ${direction}:"${item}"){
         pageInfo{
           endCursor
           hasNextPage
