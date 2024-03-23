@@ -5,7 +5,7 @@ export function RepositoryCard({ repository }) {
     return (
         <>
             <div className="repository">
-                {repository ? (<a href={repository.html_url}>
+                {repository ? (<a href={repository.url}>
                     <h2>{repository.name}</h2>
                     <p>{repository.description || 'No Description'}</p>
                     <div className='repo-stats'>

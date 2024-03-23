@@ -15,6 +15,7 @@ export function Search(){
         setSelectedRepos('pinned');
         let repositories = await fetchRepositories(username, 'pinned');
         setRepositories(repositories?.nodes);
+        console.log(repositories);
       } catch (e) {
         setUserData(null);
         setRepositories(null);

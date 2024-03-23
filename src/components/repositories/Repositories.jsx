@@ -15,6 +15,7 @@ export function Repositories() {
 
   useEffect(() => {
     updateRepos();
+    console.log(repositories);
   }, [selectedRepos]);
 
   useEffect(() => {

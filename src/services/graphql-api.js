@@ -58,6 +58,7 @@ async function pinnedRepositories(username){
            nodes {
             ... on Repository {
               name
+              url
               description
               forkCount
               stargazerCount
@@ -90,6 +91,7 @@ async function repositories(username, type){
           pushedAt
           forkCount
           stargazerCount
+          url
           licenseInfo{
             name
           }

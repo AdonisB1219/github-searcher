@@ -125,7 +125,8 @@ textarea:not([rows]) {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 0.5em;
+  height: 0.5em;
 }
 
 ::-webkit-scrollbar-thumb {
