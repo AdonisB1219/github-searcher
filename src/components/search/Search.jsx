@@ -4,17 +4,17 @@ import { fetchRepositories, fetchUserData } from '../../services/graphql-api';
 import './search.css';
 
 export function Search(){
-    const { userData, setUserData, selectedRepos, repositories, setRepositories, error, setError } = useUserStore((state) => state);
+    const { userData, setUserData, selectedRepos, repositories, setRepositories, error, setError, setSelectedRepos } = useUserStore((state) => state);
     const [searchValue, setSearchValue] = useState("");
   
     const fetchData = async (username) => {
       try {
-        console.log("request");
         setError(false);
         let userData = await fetchUserData(username);
         setUserData(userData.user);
-        let repositories = await fetchRepositories(username, selectedRepos);
-        setRepositories(repositories.nodes);
+        setSelectedRepos('pinned');
+        let repositories = await fetchRepositories(username, 'pinned');
+        setRepositories(repositories?.nodes);
       } catch (e) {
         setUserData(null);
         setRepositories(null);
