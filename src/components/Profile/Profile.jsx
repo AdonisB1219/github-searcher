@@ -1,35 +1,38 @@
 import './profile.css';
+import { useUserStore } from "../store/repositoriesStore";
 
-export function Profile({ data }) {
+
+export function Profile() {
+    const {userData, error} = useUserStore((state) => (state));
 
     return (
         <>
 
-            {data ? (
-                <>
+            {userData ? (
+                <div className='user-profile'>
                     <div className="user-info">
-                        <img className="avatar" src={data.avatar_url} />
+                        <img className="avatar" src={userData.avatar_url} />
                         <div className='user-stats'>
                         <div className="profile-info">
-                            <h3>Seguidores | <span className="info-number">{data.followers}</span></h3>
+                            <h3>Seguidores | <span className="info-number">{userData.followers}</span></h3>
                         </div>
                         <div className="profile-info">
-                        <h3>Siguiendo | <span className="info-number">{data.following}</span></h3>
+                        <h3>Siguiendo | <span className="info-number">{userData.following}</span></h3>
 
                         </div>
                         <div className="profile-info">
-                        <h3>Localidad | <span className="info-number">{data.location}</span></h3>
+                        <h3>Localidad | <span className="info-number">{userData.location}</span></h3>
 
                         </div>
                         </div>
                     </div>
                     <div className="username">
-                        <h1>{data.login}</h1>
-                        <p>{data.bio}</p>
+                        <h1>{userData.login}</h1>
+                        <p>{userData.bio}</p>
                     </div>
-                </>
+                </div>
             ) : (
-                <h1>Introduce un username</h1>
+                 error ? (<h1 className='error'>Ocurrió un error, intenta con otro usuario.</h1>) : (<h1>Introduce un username</h1>)
             )}
         </>
     )

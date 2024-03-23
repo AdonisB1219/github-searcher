@@ -5,15 +5,14 @@ import './repositories.css';
 import { useEffect } from 'react';
 
 export function Repositories() {
-  const { userData, setUserData, selectedRepos, repositories, setRepositories, setSelectedRepos } = useUserStore((state) => state);
-
-  useEffect(() => {
-    setSelectedRepos('pinned');
-  }, []);
+  const { userData, selectedRepos, repositories, setRepositories, setSelectedRepos } = useUserStore((state) => state);
 
   useEffect(() => {
     console.log(selectedRepos);
   }, [selectedRepos]);
+
+  useEffect(() => {
+  }, [repositories]);
 
   const handleClick = (filter) => {
     setSelectedRepos(filter);
@@ -22,8 +21,8 @@ export function Repositories() {
 
   return (
     <div>
-      <Profile data={userData} />
-      {repositories && (
+      <Profile />
+      {repositories && repositories.length > 0 && (
         <div className='repositories'>
           <div className='button-container'>
             <button className={selectedRepos === 'pinned' ? 'active': ''} onClick={() => handleClick('pinned')}>Fijados</button>
@@ -38,6 +37,7 @@ export function Repositories() {
           </ul>
         </div>
       )}
+      {(repositories && repositories.length == 0) ? <h1 className="repositories">Aún no hay repositorios en esta cuenta.</h1> : null }
     </div>
   )
 }

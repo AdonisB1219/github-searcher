@@ -5,7 +5,13 @@
     height: 10em;
     background: rgb(11,27,50);
     background: linear-gradient(90deg, rgba(11,27,50,1) 0%, rgba(63,104,135,1) 75%, rgba(33,81,109,1) 100%);  
-    overflow-y: auto;  
+    overflow-y: auto;
+}
+
+.repository:hover {
+    transform: scale(1.1);
+    box-shadow: 4px 4px 2px rgb(102, 125, 143);
+    background: linear-gradient(270deg, rgba(11,27,50,1) 0%, rgba(63,104,135,1) 75%, rgba(33,81,109,1) 100%);  
 }
 
 .repo-stats > * > p {

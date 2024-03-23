@@ -4,20 +4,22 @@ import { fetchRepositories, fetchUserData } from '../../services/api';
 import './search.css';
 
 export function Search(){
-    const { userData, setUserData, repositories, setRepositories } = useUserStore((state) => state);
+    const { userData, setUserData, repositories, setRepositories, error, setError } = useUserStore((state) => state);
     const [searchValue, setSearchValue] = useState("");
   
   
   
     const fetchData = async (username) => {
       try {
+        setError(false);
         let userData = await fetchUserData(username)
         setUserData(userData);
         let repositories = await fetchRepositories(username);
         setRepositories(repositories);
       } catch (e) {
         setUserData(null);
-        console.log(e);
+        setRepositories(null);
+        setError(true);
       }
     }
   
