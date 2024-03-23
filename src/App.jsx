@@ -9,7 +9,7 @@ function App() {
       <section className="search-container">
         <Search />
       </section>
-      <section className="profile">
+      <section className="user">
         <Repositories />
       </section>
     </>

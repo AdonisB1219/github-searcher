@@ -9,6 +9,7 @@ export function Profile({ data }) {
                 <>
                     <div className="user-info">
                         <img className="avatar" src={data.avatar_url} />
+                        <div className='user-stats'>
                         <div className="profile-info">
                             <h3>Seguidores | <span className="info-number">{data.followers}</span></h3>
                         </div>
@@ -19,6 +20,7 @@ export function Profile({ data }) {
                         <div className="profile-info">
                         <h3>Localidad | <span className="info-number">{data.location}</span></h3>
 
+                        </div>
                         </div>
                     </div>
                     <div className="username">

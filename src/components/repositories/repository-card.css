@@ -27,3 +27,9 @@
 h2 {
     padding-bottom: 0.3em;
 }
+
+@media (max-width: 769px) {
+    .repository {
+        width: 20em;
+    }
+}

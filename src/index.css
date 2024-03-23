@@ -31,7 +31,7 @@ html {
   text-size-adjust: none;
   font-family: 'MonaSans', sans-serif;
   font-stretch: 150%;
-  font-size: 16px;
+  font-size: clamp(11px, 2vw, 16px);
   letter-spacing: 0.1em;
 }
 
