@@ -42,7 +42,7 @@ export function Repositories() {
                 <RepositoryCard repository={repository} />
               </li>
             )))  :
-            (<h1 className="no-repos">No hay repositorios en este apartado.</h1>)
+            (<h2 className="no-repos">No hay repositorios en este apartado.</h2>)
           }
           </ul>
         </div>

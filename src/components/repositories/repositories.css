@@ -6,6 +6,7 @@ li {
 ul {
   padding: 1em 0 1em 0;
   margin: 0;
+  max-width: 100%;
 }
 
 button {
@@ -54,4 +55,5 @@ h1.repositories {
 
 .no-repos {
   padding: 0 1em;
+  max-width: 10em;
 }
