@@ -1,6 +1,6 @@
-import { RepositoryCard } from "./RepositoryCard";
-import { Profile } from '../profile/Profile';
-import { useUserStore } from "../store/repositoriesStore";
+import { RepositoryCard } from "./RepositoryCard.jsx";
+import { Profile } from '../profile/Profile.jsx';
+import { useUserStore } from "../store/repositoriesStore.js";
 import './repositories.css';
 import { useEffect } from 'react';
 import { fetchRepositories, paginatedRepositories } from '../../services/graphql-api';
