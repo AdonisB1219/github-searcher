@@ -63,13 +63,19 @@ export function Repositories() {
           }
           </ul>
           {(selectedRepos != 'pinned') ? (<>
+          <div className="pagination">
           <button 
           disabled={repoPageInfo?.hasPreviousPage ? false : true}
           onClick={ () => {getPageRepos('before')}}>Anterior</button>
 
           <button 
           disabled={repoPageInfo?.hasNextPage ? false : true}
-          onClick={() => {getPageRepos('after')}}>Siguiente</button>
+          onClick={() => {getPageRepos('after')}}
+          style={{
+            color: repoPageInfo?.hasNextPage ? 'var(--color-contrast)':'gray',
+            cursor: repoPageInfo?.hasNextPage ? 'pointer' : 'not-allowed',
+          }}>Siguiente</button>
+          </div>
           </>) : 
           (<></>)}
         </div>
@@ -78,3 +84,5 @@ export function Repositories() {
     </div>
   )
 }
+
+//TODO CORREGIR BUG EN BOTONES DE PAGINACION, A VECES SE DESHABILITAN.

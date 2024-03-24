@@ -4,9 +4,8 @@ import { setContext } from "@apollo/client/link/context";
 const endpoint = 'https://api.github.com/graphql';
 
 
-export async function fetchUserData(username){
-  console.log("API FETCHUSERDATA");
-  try{
+export async function fetchUserData(username) {
+  try {
     const userQuery = gql`query {
       user (login: "${username}") {
         login
@@ -21,21 +20,20 @@ export async function fetchUserData(username){
         avatarUrl
       }
     }`;
-    console.log((await makeRequest(userQuery)).data)
-     return (await makeRequest(userQuery)).data;
-  } catch(e) {
+    return (await makeRequest(userQuery)).data;
+  } catch (e) {
     console.log(e);
   }
-     
 
-  
+
+
 
 }
 
-export async function fetchRepositories(username, selectedRepos){
-  if (username){
+export async function fetchRepositories(username, selectedRepos) {
+  if (username) {
     let repos;
-    switch(selectedRepos){
+    switch (selectedRepos) {
       case 'pinned':
         return await pinnedRepositories(username);
       case 'all':
@@ -46,11 +44,11 @@ export async function fetchRepositories(username, selectedRepos){
         return repos.repositoriesContributedTo;
     }
   }
-  
+
 
 }
 
-async function pinnedRepositories(username){
+async function pinnedRepositories(username) {
   const query = gql`
   query {
       user (login: "${username}") {
@@ -68,12 +66,12 @@ async function pinnedRepositories(username){
         }
       }
     }
-  `;  
+  `;
   return (await makeRequest(query)).data.user.pinnedItems;
 
 }
 
-async function repositories(username, type){ 
+async function repositories(username, type) {
 
   const reposQuery = gql`query {
     user (login: "${username}") {
@@ -103,8 +101,8 @@ async function repositories(username, type){
 
 };
 
-export async function paginatedRepositories(username, type, item, direction){ 
-  let processedType =  type == 'all' ? 'repositories':'repositoriesContributedTo';
+export async function paginatedRepositories(username, type, item, direction) {
+  let processedType = type == 'all' ? 'repositories' : 'repositoriesContributedTo';
 
   const reposQuery = gql`query {
     user (login: "${username}") {

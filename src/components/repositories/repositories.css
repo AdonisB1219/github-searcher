@@ -57,3 +57,15 @@ h1.repositories {
   padding: 0 1em;
   max-width: 10em;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination > button {
+  background-color: var(--color-primary);
+  text-decoration:underline;
+  padding-top: 1em;
+  font-size: 1.1em;
+}
